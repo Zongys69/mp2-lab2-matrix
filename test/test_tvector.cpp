@@ -78,10 +78,19 @@ TEST(TDynamicVector, can_assign_vector_to_itself)
 
 TEST(TDynamicVector, can_assign_vectors_of_equal_size)
 {
+<<<<<<< HEAD
     TDynamicVector<int> v(4);
     TDynamicVector<int> v1(4);
 
     ASSERT_NO_THROW(v = v1);
+=======
+    int size = 4;
+    TDynamicVector<int> v(size);
+    TDynamicVector<int> v1(size);
+    v1 = v;
+
+    EXPECT_EQ(v, v1);
+>>>>>>> master
 }
 
 TEST(TDynamicVector, assign_operator_change_vector_size)
@@ -95,10 +104,22 @@ TEST(TDynamicVector, assign_operator_change_vector_size)
 
 TEST(TDynamicVector, can_assign_vectors_of_different_size)
 {
+<<<<<<< HEAD
     TDynamicVector<int> v(4);
     TDynamicVector<int> v1(5);
 
     ASSERT_NO_THROW(v = v1);
+=======
+    int size1 = 4, size2 = 7;
+    TDynamicVector<int> v(size2);
+    v[6] = 1;
+    TDynamicVector<int> v1(size1);
+    v1 = v;
+    TDynamicVector<int> res(size2);
+    res[6] = 1;
+
+    EXPECT_EQ(v1, res);
+>>>>>>> master
 }
 
 TEST(TDynamicVector, compare_equal_vectors_return_true)
@@ -167,6 +188,7 @@ TEST(TDynamicVector, can_multiply_scalar_by_vector)
 
 TEST(TDynamicVector, can_add_vectors_with_equal_size)
 {
+<<<<<<< HEAD
     TDynamicVector<int> v(2);
     TDynamicVector<int> v1(2);
     v[0] = 1;
@@ -175,11 +197,25 @@ TEST(TDynamicVector, can_add_vectors_with_equal_size)
     v1[1] = 2;
 
     ASSERT_NO_THROW(v + v1);
+=======
+    int size1 = 2;
+    TDynamicVector<int> v(size1);
+    TDynamicVector<int> v1(size1);
+    v[0] = 1;
+    v[1] = 2;
+    v1[0] = 2;
+    v1[1] = 1;
+    TDynamicVector<int> res(size1);
+    res[0] = 3;
+    res[1] = 3;
+    EXPECT_EQ(v + v1, res);
+>>>>>>> master
 
 }
 
 TEST(TDynamicVector, cant_add_vectors_with_not_equal_size)
 {
+<<<<<<< HEAD
     TDynamicVector<int> v(2);
     TDynamicVector<int> v1(1);
 
@@ -189,10 +225,28 @@ TEST(TDynamicVector, cant_add_vectors_with_not_equal_size)
 
 
     ASSERT_ANY_THROW(v + v1);
+=======
+    int size1 = 2, size2 = 4;
+    TDynamicVector<int> v(size1);
+    TDynamicVector<int> v1(size2);
+    v[0] = 1;
+    v[1] = 2;
+    v1[0] = 2;
+    v1[1] = 1;
+    v1[2] = 1;
+    v1[3] = 1;
+    TDynamicVector<int> res(size2);
+    res[0] = 3;
+    res[1] = 3;
+    res[2] = 1;
+    res[3] = 1;
+    EXPECT_EQ(v + v1, res);
+>>>>>>> master
 }
 
 TEST(TDynamicVector, can_subtract_vectors_with_equal_size)
 {
+<<<<<<< HEAD
     TDynamicVector<int> v(2);
     TDynamicVector<int> v1(2);
     v[0] = 1;
@@ -201,10 +255,24 @@ TEST(TDynamicVector, can_subtract_vectors_with_equal_size)
     v1[1] = 2;
 
     ASSERT_NO_THROW(v - v1);
+=======
+    int size1 = 2;
+    TDynamicVector<int> v(size1);
+    TDynamicVector<int> v1(size1);
+    v[0] = 1;
+    v[1] = 2;
+    v1[0] = 2;
+    v1[1] = 1;
+    TDynamicVector<int> res(size1);
+    res[0] = -1;
+    res[1] = 1;
+    EXPECT_EQ(v - v1, res);
+>>>>>>> master
 }
 
 TEST(TDynamicVector, cant_subtract_vectors_with_not_equal_size)
 {
+<<<<<<< HEAD
     TDynamicVector<int> v(2);
     TDynamicVector<int> v1(2);
     v[0] = 1;
@@ -213,11 +281,29 @@ TEST(TDynamicVector, cant_subtract_vectors_with_not_equal_size)
     
 
     ASSERT_NO_THROW(v - v1);
+=======
+    int size1 = 2, size2 = 4;
+    TDynamicVector<int> v(size1);
+    TDynamicVector<int> v1(size2);
+    v[0] = 1;
+    v[1] = 2;
+    v1[0] = 2;
+    v1[1] = 1;
+    v1[2] = 1;
+    v1[3] = 1;
+    TDynamicVector<int> res(size2);
+    res[0] = -1;
+    res[1] = 1;
+    res[2] = -1;
+    res[3] = -1;
+    EXPECT_EQ(v - v1, res);
+>>>>>>> master
 }
     
 
 TEST(TDynamicVector, can_multiply_vectors_with_equal_size)
 {
+<<<<<<< HEAD
     TDynamicVector<int> v(2);
     TDynamicVector<int> v1(2);
     v[0] = 1;
@@ -226,10 +312,22 @@ TEST(TDynamicVector, can_multiply_vectors_with_equal_size)
     v1[1] = 2;
 
     ASSERT_NO_THROW(v * v1);
+=======
+    int size1 = 2;
+    TDynamicVector<int> v(size1);
+    TDynamicVector<int> v1(size1);
+    v[0] = 1;
+    v[1] = 2;
+    v1[0] = 2;
+    v1[1] = 1;
+    int res = 4;
+    EXPECT_EQ(v * v1, res);
+>>>>>>> master
 }
 
 TEST(TDynamicVector, cant_multiply_vectors_with_not_equal_size)
 {
+<<<<<<< HEAD
     TDynamicVector<int> v(2);
     TDynamicVector<int> v1(2);
     v[0] = 1;
@@ -237,5 +335,39 @@ TEST(TDynamicVector, cant_multiply_vectors_with_not_equal_size)
     v1[0] = 2;
 
     ASSERT_NO_THROW(v * v1);
+=======
+    int size1 = 2, size2 = 4;
+    TDynamicVector<int> v(size1);
+    TDynamicVector<int> v1(size2);
+    v[0] = 1;
+    v[1] = 2;
+    v1[0] = 2;
+    v1[1] = 1;
+    v1[2] = 1;
+    v1[3] = 1;
+    int res = 4;
+    EXPECT_EQ(v * v1, res);
+>>>>>>> master
 }
 
+TEST(TDynamicVector, move_constructor_check)
+{
+    const int size = 10;
+    TDynamicVector<int> v1(size);
+    TDynamicVector<int> res(v1);
+
+    TDynamicVector<int> v2(std::move(v1));
+
+    EXPECT_EQ(v2, res);
+}
+
+TEST(TDynamicVector, move_opertor_check)
+{
+    const int size = 2;
+    TDynamicVector<int> v1(size);
+    TDynamicVector<int> res(v1);
+
+    TDynamicVector<int> v2 = std::move(v1);
+
+    EXPECT_EQ(v2, res);
+}

@@ -129,33 +129,98 @@ TEST(TDynamicMatrix, matrices_with_different_size_are_not_equal)
 
 TEST(TDynamicMatrix, can_add_matrices_with_equal_size)
 {
+<<<<<<< HEAD
 	TDynamicMatrix<int> m(5);
 	TDynamicMatrix<int> m1(5);
 
 	ASSERT_NO_THROW(m + m1);
+=======
+	TDynamicMatrix<int> m1(2);
+	m1[1][1] = 1;
+	TDynamicMatrix<int> m2(2);
+	m2[0][0] = 1;
+	TDynamicMatrix<int> res(2);
+	res[1][1] = 1;
+	res[0][0] = 1;
+	EXPECT_EQ(res, m1 + m2);
+>>>>>>> master
 }
 
 TEST(TDynamicMatrix, cant_add_matrices_with_not_equal_size)
 {
+<<<<<<< HEAD
 	TDynamicMatrix<int> m(5);
 	TDynamicMatrix<int> m1(10);
 
 	ASSERT_ANY_THROW(m + m1);
+=======
+	TDynamicMatrix<int> m1(2);
+	m1[1][1] = 1;
+	TDynamicMatrix<int> m2(4);
+	m2[0][0] = 1;
+	TDynamicMatrix<int> res(4);
+	res[1][1] = 1;
+	res[0][0] = 1;
+	EXPECT_EQ(res, m1 + m2);
+>>>>>>> master
 }
 
 TEST(TDynamicMatrix, can_subtract_matrices_with_equal_size)
 {
+<<<<<<< HEAD
 	TDynamicMatrix<int> m(5);
 	TDynamicMatrix<int> m1(5);
 
 	ASSERT_NO_THROW(m - m1);
+=======
+	TDynamicMatrix<int> m1(2);
+	m1[1][1] = 1;
+	TDynamicMatrix<int> m2(2);
+	m2[0][0] = 1;
+	TDynamicMatrix<int> res(2);
+	res[1][1] = 1;
+	res[0][0] = -1;
+	EXPECT_EQ(res, m1 - m2);
+>>>>>>> master
 }
 
 TEST(TDynamicMatrix, cant_subtract_matrixes_with_not_equal_size)
 {
+<<<<<<< HEAD
 	TDynamicMatrix<int> m(5);
 	TDynamicMatrix<int> m1(10);
 
 	ASSERT_ANY_THROW(m - m1);
+=======
+	TDynamicMatrix<int> m1(2);
+	m1[1][1] = 1;
+	TDynamicMatrix<int> m2(4);
+	m2[0][0] = 1;
+	TDynamicMatrix<int> res(4);
+	res[1][1] = 1;
+	res[0][0] = -1;
+	EXPECT_EQ(res, m1 - m2);
+>>>>>>> master
 }
 
+TEST(TDynamicMatrix, move_constructor_check)
+{
+	const int size = 10;
+	TDynamicMatrix<int> v(size);
+	TDynamicMatrix<int> res(v);
+
+	TDynamicMatrix<int> v1(std::move(v));
+
+	EXPECT_EQ(v1, res);
+}
+
+TEST(TDynamicMatrix, move_opertor_check)
+{
+	const int size = 2;
+	TDynamicMatrix<int> v(size);
+	TDynamicMatrix<int> res(v);
+
+	TDynamicMatrix<int> v1 = std::move(v);
+
+	EXPECT_EQ(v1, res);
+}
