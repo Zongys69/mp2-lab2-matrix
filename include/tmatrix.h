@@ -144,13 +144,8 @@ public:
   // векторные операции
   TDynamicVector operator+(const TDynamicVector& v)
   {
-<<<<<<< HEAD
-      if (v.sz != sz)
-          throw ("The sizes of the vectors are different");
-      TDynamicVector res(sz);
-      for (int i = 0; i < sz; i++)
-          res.pMem[i] = pMem[i] + v.pMem[i];;
-=======
+
+
       TDynamicVector res = TDynamicVector(std::max(sz, v.sz));
       for (int i = 0; i < min(sz, v.sz); i++) {
           res[i] = pMem[i] + v.pMem[i];
@@ -165,18 +160,14 @@ public:
               res[i] = v.pMem[i];
           }
       }
->>>>>>> master
+
       return res;
   }
   TDynamicVector operator-(const TDynamicVector& v)
   {
-<<<<<<< HEAD
-      if (v.sz != sz)
-          throw ("The sizes of the vectors are different");
-      TDynamicVector res(sz);
-      for (int i = 0; i < sz; i++)
-          res.pMem[i] = pMem[i] - v.pMem[i];;
-=======
+
+     
+
       TDynamicVector res = TDynamicVector(std::max(sz, v.sz));
       for (int i = 0; i < min(sz, v.sz); i++) {
           res[i] = pMem[i] - v.pMem[i];
@@ -191,7 +182,7 @@ public:
               res[i] = -v.pMem[i];
           }
       }
->>>>>>> master
+
       return res;
   }
   T operator*(const TDynamicVector& v) noexcept(noexcept(T()))
@@ -284,13 +275,9 @@ public:
   // матрично-матричные операции
   TDynamicMatrix operator+(const TDynamicMatrix& m)
   {
-<<<<<<< HEAD
-      if (m.sz != sz)
-          throw ("The sizes of the matrix are different");
-      TDynamicMatrix res(sz);
-      for (int i = 0; i < sz; i++)
-          res.pMem[i] = pMem[i] + m[i];;
-=======
+
+   
+
       TDynamicMatrix<T> res(std::max(sz, m.sz));
       for (int i = 0; i < std::min(sz, m.sz); i++) {
           for (int j = 0; j < std::min(sz, m.sz); j++) {
@@ -311,18 +298,14 @@ public:
               }
           }
       }
->>>>>>> master
+
       return res;
   }
   TDynamicMatrix operator-(const TDynamicMatrix& m)
   {
-<<<<<<< HEAD
-      if (m.sz != sz)
-          throw ("The sizes of the matrix are different");
-      TDynamicMatrix res(sz);
-      for (int i = 0; i < sz; i++)
-          res.pMem[i] = pMem[i] - m[i];;
-=======
+
+      
+
       TDynamicMatrix<T> res(std::max(sz, m.sz));
       for (int i = 0; i < std::min(sz, m.sz); i++) {
           for (int j = 0; j < std::min(sz, m.sz); j++) {
@@ -343,7 +326,7 @@ public:
               }
           }
       }
->>>>>>> master
+
       return res;
   }
   TDynamicMatrix operator*(const TDynamicMatrix& m)
